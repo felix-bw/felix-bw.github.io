@@ -1,0 +1,9 @@
+farben
+
+Grün: #013328
+
+Schwartz: #110C0D
+
+orangbraun: #cc8b65
+
+besch: #e3dcd2

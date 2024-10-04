@@ -1,102 +1,113 @@
-body {
+/* Allgemeine Einstellungen */
+html, body {
+    height: 100%;
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #013328; /* Dark Mode Hintergrund */
     color: #e3dcd2; /* Dark Mode Textfarbe */
-    transition: background-color 0.3s, color 0.3s; /* Sanfte Übergänge */
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
-body.light {
-    background-color: #f0f0f0; /* Light Mode Hintergrund */
-    color: #333; /* Light Mode Textfarbe */
-}
-
-.head {
+/* Header */
+header {
+    background-color: #110C0D; /* Header bleibt gleich */
+    color: #c7835b; /* Textfarbe im Header bleibt unverändert */
+    padding: 20px;
+    text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #110C0D; /* Schwartz */
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.head h1 {
+header h1 {
     margin: 0;
-    color: #c7835b; /* orangbraun */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+
+nav a {
+    color: #c7835b; /* Textfarbe im Header bleibt unverändert */
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
 }
 
 #toggle-btn {
     background: none;
     border: none;
-    color: #c7835b; /* orangbraun */
+    color: #c7835b; /* Textfarbe des Buttons bleibt unverändert */
     cursor: pointer;
     font-size: 24px;
 }
 
-nav {
-    text-align: center;
-    margin: 20px 0;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav li {
-    margin: 0 15px;
-}
-
-nav a {
-    color: #c7835b; /* orangbraun */
-    text-decoration: none;
-    font-size: 18px;
-}
-
+/* Projekte */
 .project {
-    background-color: #110C0D; /* Schwartz */
+    background-color: #110C0D; /* Dunkler Hintergrund für Projektboxen */
     padding: 20px;
-    margin: 20px 0;
+    margin: 20px auto; /* Zentriert die Boxen */
     border-radius: 5px;
     transition: transform 0.2s;
-    color: #e3dcd2; /* Dark Mode Textfarbe */
-}
-
-.project:hover {
-    transform: scale(1.05); /* Zoom-Effekt bei Hover */
-}
-
-.project.light {
-    background-color: #013328; /* Grün für Light Mode */
-    color: #e3dcd2; /* Textfarbe im Light Mode */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #e3dcd2;
+    max-width: 800px; /* Maximale Breite der Projektboxen */
+    width: 90%; /* Breite auf 90% des Viewports, aber maximal 800px */
 }
 
 .project img {
-    width: 100%; /* Bildbreite anpassen */
+    width: 100%;
     max-width: 400px; /* Maximalbreite der Bilder */
-    border-radius: 5px; /* Abgerundete Ecken für Bilder */
+    border-radius: 5px;
 }
 
-.project h3 {
-    margin: 10px 0;
+/* Hover-Effekt im Dark Mode */
+.project:hover {
+    background-color: #1a1a1a; /* Dunklerer Hintergrund bei Hover im Dark Mode */
+    transform: scale(1.05); /* Leichtes Vergrößern der Box bei Hover */
 }
 
-.project a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #c7835b; /* orangbraun */
-    text-decoration: underline;
+body.light .project {
+    background-color: #013328; /* Grüner Hintergrund für Projektboxen im Light Mode */
+    color: #e3dcd2; /* Heller Text in den Projektboxen */
 }
 
-section {
-    padding: 20px;
-    margin: 20px;
+body.light .project:hover {
+    background-color: #013e30; /* Dunkleres Grün bei Hover im Light Mode */
 }
 
+/* Footer */
 footer {
+    background-color: #110C0D; /* Footer bleibt gleich */
+    color: #c7835b;
     text-align: center;
     padding: 10px;
-    background-color: #110C0D; /* Schwartz */
-    color: #c7835b; /* orangbraun */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Light Mode */
+body.light {
+    background-color: #f9f9f9; /* Heller Hintergrund */
+    color: #333; /* Dunkler Text für bessere Lesbarkeit */
+}
+
+body.light nav a {
+    color: #c7835b; /* Textfarbe im Header bleibt unverändert */
+}
+
+body.light #toggle-btn {
+    color: #c7835b; /* Textfarbe des Buttons bleibt unverändert */
 }

@@ -9,4 +9,17 @@ function toggleTheme() {
     });
 
     button.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>'; // Icon wechseln
+
+    // Speichere den Status im localStorage
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
 }
+
+// Beim Laden der Seite den gespeicherten Modus überprüfen
+window.onload = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light');
+        const button = document.getElementById('toggle-btn');
+        button.innerHTML = '<i class="fas fa-moon"></i>'; // Icon für Light Mode
+    }
+};

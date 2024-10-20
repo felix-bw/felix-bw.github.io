@@ -63,6 +63,7 @@ nav a:hover {
     color: #e3dcd2;
     max-width: 800px; /* Maximale Breite der Projektboxen */
     width: 90%; /* Breite auf 90% des Viewports, aber maximal 800px */
+    overflow: hidden;
 }
 
 .project img {
@@ -111,3 +112,34 @@ body.light nav a {
 body.light #toggle-btn {
     color: #c7835b; /* Textfarbe des Buttons bleibt unverändert */
 }
+a {
+    color: #c7835b;
+}
+.gallery {
+    display: flex;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+/* Entferne Hover-Effekt für das spezifische Projekt */
+.no-hover:hover {
+    transform: none; /* Kein Vergrößern bei Hover */
+    background-color: #110C0D; /* Hintergrund bleibt unverändert */
+}
+
+
+.project {
+    background-color: #110C0D; /* Schwarzer Kasten */
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #e3dcd2;
+    max-width: 800px; /* Begrenze die Breite auf max. 800px */
+    width: 90%; /* Oder 90% des Bildschirms */
+}
+

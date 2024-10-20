@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proxmox</title>
-    <script src="../styles.css"></script>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </head>
+
 <body>
     <header>
         <div class="head">
@@ -22,13 +28,47 @@
             </ul>
         </nav>
     </header>
-    
+
+    <!-- Hauptinhalt für das Proxmox-Projekt -->
+    <main>
+        <section class="project no-hover">
+            <h2>Virtualisierungsserver Einrichten (Proxmox)</h2>
+            <p><strong>Erstellt für:</strong> EDV-Schule Plattling</p>
+            <p><strong>Abgegeben am:</strong> 26.01.2024</p>
+            <p><strong>Beschreibung:</strong></p>
+            <p>Proxmox wurde installiert und für die Schule konfiguriert. Unser Cluster greift vom LDAP-Server der
+                Schule die Benutzerkonten ab. Dadurch kann sich jeder Schüler anmelden und in dem seiner Klasse
+                zugewiesenen Pool VMs und Container erstellen. Im rahmen des Projekts wurde eine Anleitung erstellt.</p>
+            <p><strong>Weitere Teilnehmer:</strong> <a href="https://www.it-thaler.de">Heinrich Thaler</a>  </p>
+            <p><strong>Verwendete Hardware:</strong></p>
+            <ul>
+                <li>2x PCs</li>
+                <li>1x Linux-Maschine für Backup und drittes Quorum Vote</li>
+            </ul>
+            <p><strong>Galerie:</strong></p>
+            <div class="gallery">
+                <img src="../pics/proxmox/proxomx-dashboard.png" alt="proxomx-dashboard">
+                <img src="../pics/proxmox/win.png" alt="windows VM">
+            </div>
 
 
+
+      
+            
+
+
+
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2024 Maier Felix</p>
     </footer>
+
+
+    <script src="script.js"></script>
+
     
 </body>
+
 </html>

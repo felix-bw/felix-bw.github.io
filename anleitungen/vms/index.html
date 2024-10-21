@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMs erstellen</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="head">
+        <h1>VMs erstellen</h1>
+    </header>
+    <section class="step step1">
+        <h2>Vorbereitung</h2>
+        <div class="box">
+
+
+            <p>
+                Zum Erstellen einer VM benötigen wir ein ISO-Image. <br />
+                Dieses kann vom lokalen PC oder direkt über die URL in Proxmox geladen werden.
+                <br />
+        </div>
+        </p>
+
+        <h2>Installation</h2>
+        <div class="box">
+
+            <h3>Importieren eines ISO Images vom PC</h3>
+            <img src="./bilder/Vorbereitung.PNG" alt="Vorbereitung">
+
+            <ol>
+
+                <li>Node</li>
+                <li>Storage auf Node</li>
+                <li>ISO Images</li>
+                <li>Upload</li>
+
+        </div>
+        <div class="box">
+
+            <img src="./bilder/UploadFenster.PNG" alt="UploadFenster">
+
+            <p>
+                <li>Button 'Select File' wählen</li>
+            </p>
+        </div>
+
+        </ol>
+        <div class="box">
+
+            <ol>
+                <p>
+                    <img src="./bilder/UploadDatei.PNG" alt="UploadDatei">
+                    <li>Datei selektieren</li>
+                    <li>Datei öffnen</li>
+                </p>
+            </ol>
+        </div>
+
+        <div class="box">
+
+            <p>
+                <img src="./bilder/UploadUberpruefen.PNG" alt="UploadUberpruefen">
+                <li> Überprüfen und Uploaden</li>
+            </p>
+        </div>
+
+        <h3>VM erstellen</h3>
+        <div class="box">
+
+            <p>
+                <img src="./bilder/Create1.PNG" alt="Create1">
+                <li>'Create VM' wählen</li>
+            </p>
+        </div>
+
+        <div class="box">
+
+            <img src="./bilder/Create2.PNG" alt="Create2">
+            <ol>
+                <li>Node Auswählen</li>
+                <li>ID vergeben (wird automatisch erhöht)</li>
+                <li>Name vergeben</li>
+                <li>Resource Pool wählen</li>
+                <li>Next</li>
+            </ol>
+
+        </div>
+
+        <div class="box">
+            <img src="./bilder/Create3.PNG" alt="Create3">
+            <ol>
+                <li>ISO Image auswählen</li>
+                <li>Next</li>
+            </ol>
+        </div>
+
+        <div class="box">
+            <img src="./bilder/Create4.PNG" alt="Create4">
+            <ol>
+                <li>Einstellungen überprüfen</li>
+                <li>Next</li>
+            </ol>
+            <p>
+        </div>
+
+        <div class="box">
+            <img src="./bilder/Create5.PNG" alt="Create5">
+            <ol>
+                <li>Größe der Disk Anpassen</li>
+                <li>Next</li>
+            </ol>
+        </div>
+
+
+
+        <div class="box">
+            <img src="./bilder/Create6.PNG" alt="Create6">
+            <ol>
+                <li>Cores die diese VM zur Verfügung hat Anpassen</li>
+                <li>Next</li>
+            </ol>
+        </div>
+
+
+
+        <div class="box">
+            <img src="./bilder/Create7.PNG" alt="Create7">
+            <ol>
+                <li>Zur Verfügung stehenden RAM einstellen</li>
+                <li>Next</li>
+            </ol>
+        </div>
+
+
+
+
+        <div class="box">
+            <img src="./bilder/Create8.PNG" alt="Create8">
+            <ol>
+                <li>Network Bridge einstellen</li>
+                <li>Next</li>
+            </ol>
+        </div>
+
+
+        <div class="box">
+            <img src="./bilder/Create9.PNG" alt="Create9">
+            <li>Einstellungen überprüfen und abschliesen</li>
+        </div>
+
+        <div class="box">
+
+            <img src="./bilder/Create10.png" alt="Create10">
+            <ol>
+                <li>Maschine auswählen</li>
+                <li>Konsole wählen</li>
+                <li>Maschine starten</li>
+                <li>Ab hier gewöhnliche Installation des gewünschten Betriebssystems </li>
+            </ol>
+
+
+        </div>
+
+
+
+    </section>
+
+    <footer id="subFooter">
+        <p>&copy; 2023 Felix Maier & <a href="https://www.it-thaler.de/">Heinrich Thaler</a> </p>
+    </footer>
+
+</body>
+
+</html>

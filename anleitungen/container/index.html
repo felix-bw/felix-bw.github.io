@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Container</title>
+    
+</head>
+
+<body>
+    <header class="head">
+        <h1>Container</h1>
+    </header>
+
+    <h2>Vorbereitung</h2>
+
+    <div class="box">
+
+        <p>
+            Zum Erstellen eines Containers benötigen wir ein Template. <br />
+            Dieses kann vom lokalen PC, über den Button Template oder über die URL in Proxmox geladen werden.
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>Importieren des ISO-Images</h3>
+        <img src="bilder/p1.png" alt="">
+        <p> Gewünschten Node auswählen und unter 'local (pve)', 'CT Templates' eine der drei Möglichkeiten zum
+            hochladen
+            eines Templates wählen.
+        </p>
+
+    </div>
+
+    <div class="box">
+
+        <b> 1. </b> Upload
+        <ol>Datei vom PC hochladen</ol>
+        <img src="bilder/p3.png" alt="">
+
+    </div>
+    <div class="box">
+
+        <b>2. </b> Download from URL
+        <ol>URL einfügen und direkt in Proxmox uploaden</ol>
+        <img src="bilder/p2.png" alt="">
+
+    </div>
+    <div class="box">
+
+        <b>3. </b> Templates
+        <ol>Ein von Proxmox bereitgestelltes Template verwenden</ol>
+        <img src="bilder/p4.png" alt="">
+
+    </div>
+
+    <div class="box">
+        <p>
+            Nach dem Download erscheint das Template hier: <br>
+            <img src="bilder/p5.png" alt="">
+        </p>
+    </div>
+   
+    <h2>Erstellen des Containers</h2>
+    
+    <div class="box">
+        <p>
+            Neben dem Button 'Create VM' auf 'Create CT' drücken: <br>
+            <img src="bilder/p6.png" alt="">
+        </p>
+    </div>
+
+    <div class="box">
+        <p>
+            <img src="bilder/p8.png" alt=""><br>
+        <ol>
+            <li>Node auswählen</li>
+            <li>ID vergeben (wird automatisch erhöht)</li>
+            <li>Name angeben</li>
+            <li>Resource Pool auswählen</li>
+            <li>Passwort für root eingeben</li>
+            <li>SSH Schlüssel kann direkt hochgeladen werden</li>
+            <li>Next</li>
+        </ol>
+        </p>
+    </div>
+
+    <div class="box">
+        <p>
+            <img src="bilder/p9.png" alt="">
+        <ol>
+            <li>Template wählen</li>
+            <li>next</li>
+        </ol>
+        </p>
+    </div>
+
+    <div class="box">
+        <p>
+            <img src="bilder/p10.png" alt="">
+        <ol>
+            <li>Speicherort und Größe festlegen</li>
+            <li>Next</li>
+        </ol>
+        </p>
+    </div>
+
+    <div class="box">
+        <p>
+            <img src="bilder/p11.png" alt="">
+        <ol>
+            <li>Arbeitsspeicher festlegen</li>
+            <li>Next</li>
+        </ol>
+        </p>
+    </div>
+
+    <div class="box">
+
+        <p>
+            <img src="bilder/p12.png" alt="">
+        <ol>
+            <li>
+                IP-Adresse und Gateway konfigurieren.
+            </li>
+            <li>Next</li>
+        </ol>
+        </p>
+    </div>
+
+    <div class="box">
+
+        <p>
+            <img src="bilder/p13.png" alt="">
+        <ol>
+            <li>DNS konfigurieren.</li>
+            <li>Next</li>
+        </ol>
+        </p>
+    </div>
+
+    <div class="box">
+
+        <p>
+            <img src="bilder/p14.png" alt="">
+        <ol>
+            <li>Einstellungen überprüfen</li>
+            <li>'Finish' zu abschließen der Installation drücken</li>
+        </ol>
+        </p>
+    </div>
+
+    <h2>Abschließen</h2>
+    <div class="box">
+        <img src="bilder/p15.png" alt="">
+        <p>
+            Der Container sollte jetzt im node auftauchen und kann durch einen Klick auf 'Start' gestartet werden
+        </p>
+    </div>
+
+
+
+
+    <footer id="subFooter">
+        <p>&copy; 2023 Felix Maier & <a href="https://www.it-thaler.de/">Heinrich Thaler</a> </p>
+    </footer>
+
+</body>
+
+</html>

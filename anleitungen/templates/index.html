@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js"></script>
+    <title>Templates erstellen</title>
+</head>
+
+<body>
+    <header class="head">
+        <h1>Templates erstellen</h1>
+    </header>
+
+    <h2>Vorbereitung</h2>
+    </b>
+    <div class="box">
+
+        <p>Der erste Schritt ist das Erstellen einer <a href="/vms/index.html">VM</a> oder eines <a
+                href="/container/index.html">LXC Containers</a>. <br />
+            Nachdem die Maschine so konfiguriert hat wie man es möchte (z.B. Webserver,Entwicklungsserver,...) muss
+            man einige Befehle ausführen:</p>
+    
+        <div class="command-group">
+            <div class="command-container">
+                <div class="command" id="befehl1">apt update && apt upgrade && apt clean && apt autoremove</div>
+                <button class="copy-button" onclick="CopyToClipboard('befehl1')">Copy</button>
+            </div>
+            <div class="command-container">
+                <div class="command" id="befehl2">rm -f /etc/machine-id /var/lib/dbus/machine-id</div>
+                <button class="copy-button" onclick="CopyToClipboard('befehl2')">Copy</button>
+            </div>
+    
+            <div class="command-container">
+                <div class="command" id="befehl3">touch /etc/machine-id /var/lib/dbus/machine-id</div>
+                <button class="copy-button" onclick="CopyToClipboard('befehl3')">Copy</button>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="box">
+    <p>Dann kann die Maschine konvertiert werden.</p>
+    <img src="bilder/p1.png" alt="convert">
+
+    <img src="bilder/p2.png" alt="yes">
+    <p>Dazu klicken Sie mit der rechten Maustaste auf die gewünschte Maschine und wählen 'Convert to template'.
+        Bestätigen sie mit 'Yes'.
+        </br>Nach einiger Zeit erscheint das Template im Node. Die Maschine ist jetzt bereit zum Klonen</p>
+    </br>
+
+</div>
+
+<div class="box">
+    <img src="bilder/p3.png" alt="">
+    <p>Nach dem Klick auf "Clone" beginnt der Klonvorgang.</p>
+
+</div>
+  
+<div class="box">
+        <img src="bilder/p4.png" alt="">
+    <p>Der Name muss geändert werden. Außerdem kann man das Node und die ID ändern. <br>
+        Wenn man alle Einstellungen überprüft hat wird der Vorgang mit einem Klick auf 'Clone' abgeschlossen.</p>
+</div>
+
+<div class="box">
+    <p>Nach dem Starten der Maschine müssen nochmals Befehle ausgeführt werden:</p>
+
+    <div class="command-group">
+        <div class="command-container">
+            <div class="command" id="befehl4">hostnamectl set-hostname *neuer name*</div>
+            <button class="copy-button" onclick="CopyToClipboard('befehl4')">Copy</button>
+        </div>
+
+        <div class="command-container">
+            <div class="command" id="befehl5">nano /etc/hosts</div>
+            <button class="copy-button" onclick="CopyToClipboard('befehl5')">Copy</button>
+        </div>
+    </div>
+
+    <p>falls ssh insterliert ist:</p>
+    <div class="command-group">
+        <div class="command-container">
+            <div class="command" id="befehl6">rm /etc/ssh/ssh_host_*</div>
+            <button class="copy-button" onclick="CopyToClipboard('befehl6')">Copy</button>
+        </div>
+
+        <div class="command-container">
+            <div class="command" id="befehl7">dpkg-reconfigure openssh-server</div>
+            <button class="copy-button" onclick="CopyToClipboard('befehl7')">Copy</button>
+        </div>
+    </div>
+</div>
+
+
+   
+</body>
+ <footer id="subFooter">
+        <p>&copy; 2023 Felix Maier & <a href="https://www.it-thaler.de/">Heinrich Thaler</a> </p>
+    </footer>
+</html>

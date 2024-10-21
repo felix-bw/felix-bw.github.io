@@ -143,3 +143,42 @@ a {
     width: 90%; /* Oder 90% des Bildschirms */
 }
 
+/* Lebenslauf-Sektion */
+#lebenslauf {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #e3dcd2;
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #c7835b;
+}
+
+a {
+    color: #c7835b;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li::before {
+    content: "• ";
+    color: #c7835b;
+}
+
+hr {
+    border: 1px solid #ddd;
+    margin: 20px 0;
+}

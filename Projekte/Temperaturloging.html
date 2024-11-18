@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperaturlogging</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <h1>Maier Felix</h1>
+            <button id="toggle-btn" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Startseite</a></li>
+                <li><a href="projekte.html"><i class="fas fa-project-diagram"></i> Projekte</a></li>
+                <li><a href="lebenslauf.html"><i class="fas fa-user-graduate"></i> Lebenslauf</a></li>
+                <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hauptinhalt für das Temperaturlogging-Projekt -->
+    <main>
+        <section class="project no-hover">
+            <h2>Temperaturlogging</h2>
+            <p><strong>Erstellt für:</strong> EDV-Schule Plattling</p>
+            <p><strong>Abgegeben am:</strong> 01.02.2024</p>
+            <p><strong>Beschreibung:</strong></p>
+            <p>Ihm Rahmen des Projekts haben wir mehrere Mikrocontroller (ESP32) in verschiedene Räume des Schulhauses verteilt. Ein Dienst sammelt die aktuellen Temperaturen und speichert diese in einer Datenbank. Die Messwerte werden von Heinrich Thaler in einem Graphen dargestellt. Die Verwaltung der ESPs erfolgt über die von Felix Maier entwickelte ESPVerwaltung, mit der Geräte hinzugefügt, gelöscht und geändert werden können.</p>
+            <p><strong>Weitere Teilnehmer:</strong> <a href="https://www.it-thaler.de">Heinrich Thaler</a></p>
+            <p><strong>Verwendete Software & Hardware:</strong></p>
+            <ul>
+                <li>Programmiersprache: C# WPF</li>
+                <li>Bibliothek für Graph Visualisierung: LiveCharts</li>
+                <li>Mikrocontroller: ESP32</li>
+                <li>Temperatursensor: DHT22 AM2302</li>
+            </ul>
+            <p><strong>Galerie:</strong></p>
+            <div class="gallery">
+                <img src="../pics/temperaturlogging/EspVisualisierung1.png" alt="EspVisualisierung">
+                <img src="../pics/temperaturlogging/EspVisualisierung2.png" alt="EspVisualisierung">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Felix Maier</p>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a> | 
+                <a href="cookies.html">Cookie-Einstellungen</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

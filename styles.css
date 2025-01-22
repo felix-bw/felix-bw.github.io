@@ -52,6 +52,12 @@ nav a:hover {
     font-size: 24px;
 }
 
+/* Hauptinhalt */
+main {
+    flex: 1; /* Nimmt den verfügbaren Platz ein */
+    padding-bottom: 100px; /* Platz für den Footer schaffen */
+}
+
 /* Projekte */
 .project {
     background-color: #110C0D; /* Dunkler Hintergrund für Projektboxen */
@@ -93,8 +99,6 @@ footer {
     color: #c7835b;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     box-sizing: border-box;
 }
@@ -112,9 +116,11 @@ body.light nav a {
 body.light #toggle-btn {
     color: #c7835b; /* Textfarbe des Buttons bleibt unverändert */
 }
+
 a {
     color: #c7835b;
 }
+
 .gallery {
     display: flex;
     gap: 10px;
@@ -125,12 +131,12 @@ a {
     height: auto;
     border-radius: 5px;
 }
+
 /* Entferne Hover-Effekt für das spezifische Projekt */
 .no-hover:hover {
     transform: none; /* Kein Vergrößern bei Hover */
     background-color: #110C0D; /* Hintergrund bleibt unverändert */
 }
-
 
 .project {
     background-color: #110C0D; /* Schwarzer Kasten */
@@ -140,45 +146,5 @@ a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: #e3dcd2;
     max-width: 800px; /* Begrenze die Breite auf max. 800px */
-    width: 90%; /* Oder 90% des Bildschirms */
-}
-
-/* Lebenslauf-Sektion */
-#lebenslauf {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #e3dcd2;
-    padding: 20px;
-}
-
-.section {
-    margin-bottom: 20px;
-}
-
-h1, h2 {
-    color: #c7835b;
-}
-
-a {
-    color: #c7835b;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li::before {
-    content: "• ";
-    color: #c7835b;
-}
-
-hr {
-    border: 1px solid #ddd;
-    margin: 20px 0;
+    width: 90%; /* Oder 90% des Viewports */
 }

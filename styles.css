@@ -148,3 +148,7 @@ a {
     max-width: 800px; /* Begrenze die Breite auf max. 800px */
     width: 90%; /* Oder 90% des Viewports */
 }
+
+#about{
+    padding: 10px;
+}

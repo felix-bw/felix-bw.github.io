@@ -6,68 +6,75 @@
     <title>Maier Felix - Lebenslauf</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="script.js"></script>
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <a href="index.html"><h1>Maier Felix</h1></a>
-        <nav>
+    <header class="site-header">
+        <div class="header-brand">
+            <a class="brand-title" href="index.html">Maier Felix</a>
+        </div>
+        <nav class="header-nav">
             <ul>
                 <li><a href="projekte.html"><i class="fas fa-project-diagram"></i> Projekte</a></li>
                 <li><a href="lebenslauf.html"><i class="fas fa-user-graduate"></i> Lebenslauf</a></li>
             </ul>
         </nav>
-        <button id="toggle-btn" onclick="toggleTheme()">
-            <i class="fas fa-sun"></i>
-        </button>
+        <div class="header-actions">
+            <button id="toggle-btn" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
     </header>
 
     <!-- Hauptinhalt -->
     <main>
-        <section id="lebenslauf">
-            <h2>Lebenslauf</h2>
-            
-            <div class="section">
-                <h2>Felix Maier</h2>
+        <h2>Lebenslauf</h2>
+        
+        <section class="cv-section">
+            <h3>Persönliche Daten</h3>
+            <div class="cv-content">
+                <h4>Felix Maier</h4>
                 <p>Prof.-Stelzenberger Str. 9<br>
                 84144 Geisenhausen</p>
                 <p><strong>E-Mail:</strong> <a href="mailto:info@maier-felix.de">info@maier-felix.de</a></p>
                 <p><strong>Geburtsdatum:</strong> 15.04.2006</p>
             </div>
-            
-            <hr>
-    
-            <div class="section">
-                <h2>Berufsausbildung</h2>
-                <p>2022 – 2025<br>
+        </section>
+        
+        <section class="cv-section">
+            <h3>Berufsausbildung</h3>
+            <div class="cv-content">
+                <p><strong>2022 – 2025</strong><br>
                 Ausbildung zum Fachinformatiker für Systemintegration<br>
                 Berufsfachschule für IT-Berufe des Landkreises Deggendorf</p>
             </div>
-            
-            <hr>
-    
-            <div class="section">
-                <h2>Schulbildung</h2>
-                <p>2016 – 2022<br>
+        </section>
+        
+        <section class="cv-section">
+            <h3>Schulbildung</h3>
+            <div class="cv-content">
+                <p><strong>2016 – 2022</strong><br>
                 Realschule Vilsbiburg<br>
                 Abschluss: Mittlere Reife</p>
-                <p>2012 – 2016<br>
+                <p><strong>2012 – 2016</strong><br>
                 Grundschule Geisenhausen</p>
             </div>
-            
-            <hr>
-    
-            <div class="section">
-                <h2>Hobbys</h2>
+        </section>
+        
+        <section class="cv-section">
+            <h3>Engagement</h3>
+            <div class="cv-content">
                 <ul>
                     <li>Freiwillige Feuerwehr Salksdorf (FFW Salksdorf)</li>
                 </ul>
             </div>
-            
-            <hr>
-    
-            <div class="section">
-                <h2>Skills</h2>
+        </section>
+        
+        <section class="cv-section">
+            <h3>Technische Kenntnisse</h3>
+            <div class="cv-content">
                 <ul>
                     <li><strong>Betriebssysteme:</strong> Linux, Windows, Windows Server</li>
                     <li><strong>Programmierung:</strong> C#, HTML, CSS, JavaScript, PowerShell</li>
@@ -83,6 +90,5 @@
         <p>&copy; 2024 Maier Felix</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>

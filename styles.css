@@ -1,154 +1,872 @@
-/* Allgemeine Einstellungen */
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #013328; /* Dark Mode Hintergrund */
-    color: #e3dcd2; /* Dark Mode Textfarbe */
-    transition: background-color 0.3s, color 0.3s;
-    display: flex;
-    flex-direction: column;
+/* ==================== VARIABLES & RESET ==================== */
+:root {
+    --primary-bg: #013328;      /* Dunkelgrün - Haupt-Hintergrund */
+    --secondary-bg: #110C0D;    /* Schwarz - Karten und Header */
+    --accent: #cc8b65;          /* Orangbraun - Akzentfarbe */
+    --accent-hover: #dda876;    /* Heller Orangbraun */
+    --text-primary: #e3dcd2;    /* Beige - Haupttext */
+    --text-secondary: #a89a8f;  /* Gedämpfter Text */
+    --border-radius: 12px;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 12px 48px rgba(204, 139, 101, 0.15);
+    --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Header */
-header {
-    background-color: #110C0D; /* Header bleibt gleich */
-    color: #c7835b; /* Textfarbe im Header bleibt unverändert */
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-header h1 {
-    margin: 0;
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--primary-bg) 0%, #0a1f1c 100%);
+    color: var(--text-primary);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
-nav ul {
+/* ==================== HEADER ==================== */
+.site-header {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #1a1415 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(204, 139, 101, 0.1);
+    padding: 0 2rem;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    height: 80px;
+    min-height: 80px;
+    position: relative;
+}
+
+.site-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(204, 139, 101, 0.03) 50%, transparent 100%);
+    pointer-events: none;
+}
+
+.header-brand {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.header-brand .brand-title {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: var(--transition);
+}
+
+.header-brand .brand-title:hover {
+    transform: scale(1.05);
+}
+
+.header-nav {
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.header-nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
     margin: 0;
+    padding: 0;
 }
 
-nav a {
-    color: #c7835b; /* Textfarbe im Header bleibt unverändert */
+.header-nav a {
+    color: var(--text-primary);
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    position: relative;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.header-nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(204, 139, 101, 0.1) 0%, rgba(204, 139, 101, 0.05) 100%);
+    border-radius: 25px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.header-nav a:hover::before {
+    opacity: 1;
+}
+
+.header-nav a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    z-index: 1;
 }
 
 #toggle-btn {
-    background: none;
-    border: none;
-    color: #c7835b; /* Textfarbe des Buttons bleibt unverändert */
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #1a1415 100%);
+    border: 2px solid rgba(204, 139, 101, 0.3);
+    color: var(--text-primary);
     cursor: pointer;
-    font-size: 24px;
-}
-
-/* Hauptinhalt */
-main {
-    flex: 1; /* Nimmt den verfügbaren Platz ein */
-    padding-bottom: 100px; /* Platz für den Footer schaffen */
-}
-
-/* Projekte */
-.project {
-    background-color: #110C0D; /* Dunkler Hintergrund für Projektboxen */
-    padding: 20px;
-    margin: 20px auto; /* Zentriert die Boxen */
-    border-radius: 5px;
-    transition: transform 0.2s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #e3dcd2;
-    max-width: 800px; /* Maximale Breite der Projektboxen */
-    width: 90%; /* Breite auf 90% des Viewports, aber maximal 800px */
+    font-size: 1.3rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    position: relative;
     overflow: hidden;
+}
+
+#toggle-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+#toggle-btn:hover::before {
+    opacity: 0.1;
+}
+
+#toggle-btn:hover {
+    border-color: var(--accent);
+    transform: rotate(15deg) scale(1.05);
+    box-shadow: 0 8px 25px rgba(204, 139, 101, 0.3);
+}
+
+/* ==================== MAIN CONTENT ==================== */
+main {
+    flex: 1;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    color: var(--text-primary);
+    position: relative;
+    padding-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    border-radius: 2px;
+}
+
+/* ==================== PROJECTS ==================== */
+.project {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #1a1415 100%);
+    padding: 3rem;
+    margin: 3rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(204, 139, 101, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+}
+
+.project:hover:not(.no-hover) {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(204, 139, 101, 0.3);
+}
+
+.project h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.project p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* Inline Links im Text (nicht die Button-Links) */
+.project p a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    display: inline;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    margin: 0;
+    gap: 0;
+}
+
+.project p a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+    transform: none;
+}
+
+.project a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--accent);
+    border-radius: 25px;
+    background: transparent;
+}
+
+.project a:hover {
+    color: var(--primary-bg);
+    background: var(--accent);
+    gap: 0.8rem;
+    transform: translateX(4px);
 }
 
 .project img {
     width: 100%;
-    max-width: 400px; /* Maximalbreite der Bilder */
-    border-radius: 5px;
+    max-width: 550px;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+    transition: var(--transition);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover-Effekt im Dark Mode */
-.project:hover {
-    background-color: #1a1a1a; /* Dunklerer Hintergrund bei Hover im Dark Mode */
-    transform: scale(1.05); /* Leichtes Vergrößern der Box bei Hover */
+.project img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
 }
 
-body.light .project {
-    background-color: #013328; /* Grüner Hintergrund für Projektboxen im Light Mode */
-    color: #e3dcd2; /* Heller Text in den Projektboxen */
+.no-hover {
+    border-left: none;
 }
 
-body.light .project:hover {
-    background-color: #013e30; /* Dunkleres Grün bei Hover im Light Mode */
+.no-hover:hover {
+    transform: none;
+    box-shadow: var(--shadow);
 }
 
-/* Footer */
-footer {
-    background-color: #110C0D; /* Footer bleibt gleich */
-    color: #c7835b;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Light Mode */
-body.light {
-    background-color: #f9f9f9; /* Heller Hintergrund */
-    color: #333; /* Dunkler Text für bessere Lesbarkeit */
-}
-
-body.light nav a {
-    color: #c7835b; /* Textfarbe im Header bleibt unverändert */
-}
-
-body.light #toggle-btn {
-    color: #c7835b; /* Textfarbe des Buttons bleibt unverändert */
-}
-
-a {
-    color: #c7835b;
-}
-
+/* ==================== GALLERY ==================== */
 .gallery {
-    display: flex;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
 }
 
 .gallery img {
-    width: 200px;
-    height: auto;
-    border-radius: 5px;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Entferne Hover-Effekt für das spezifische Projekt */
-.no-hover:hover {
-    transform: none; /* Kein Vergrößern bei Hover */
-    background-color: #110C0D; /* Hintergrund bleibt unverändert */
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(204, 139, 101, 0.3);
 }
 
-.project {
-    background-color: #110C0D; /* Schwarzer Kasten */
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #e3dcd2;
-    max-width: 800px; /* Begrenze die Breite auf max. 800px */
-    width: 90%; /* Oder 90% des Viewports */
+/* ==================== HERO SECTION ==================== */
+#hero {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #1a1415 100%);
+    padding: 4rem 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 3rem;
+    border: 1px solid rgba(204, 139, 101, 0.1);
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
 }
 
-#about{
-    padding: 10px;
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h2 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    position: relative;
+    padding-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.hero-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    border-radius: 2px;
+}
+
+.hero-text p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.hero-text a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.hero-text a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* ==================== PORTRAIT ==================== */
+.portrait-container {
+    position: relative;
+    width: 280px;
+    height: 350px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.portrait-container:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.portrait {
+    width: 100%;
+    height: 100%;
+    background-image: url('pics/Porträt.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: var(--border-radius);
+    position: relative;
+    transition: var(--transition);
+}
+
+/* Schutz vor Download und Rechtsklick */
+.portrait-container,
+.portrait {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
+}
+
+/* Overlay für zusätzlichen Schutz */
+.portrait::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(204, 139, 101, 0.05) 50%, transparent 60%);
+    pointer-events: none;
+}
+
+/* ==================== LIGHT MODE HERO ==================== */
+body.light #hero {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #fafafa 100%);
+    border: 1px solid rgba(204, 139, 101, 0.15);
+}
+
+body.light .portrait-container {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+body.light .portrait-container:hover {
+    box-shadow: 0 12px 48px rgba(204, 139, 101, 0.15);
+}
+
+.section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.section li {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.section li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent), transparent);
+    margin: 3rem 0;
+}
+
+/* ==================== PROJECT BACK BUTTON ==================== */
+.project-back {
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--accent);
+    border-radius: 25px;
+    background: transparent;
+    font-size: 1rem;
+}
+
+.project-back:hover {
+    color: var(--primary-bg);
+    background: var(--accent);
+    transform: translateX(-4px);
+    box-shadow: 0 8px 25px rgba(204, 139, 101, 0.3);
+}
+
+.project-back i {
+    font-size: 0.9rem;
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #1a1415 100%);
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 3rem 2rem;
+    width: 100%;
+    border-top: 1px solid rgba(204, 139, 101, 0.1);
+    margin-top: auto;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+}
+
+footer a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+footer a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* ==================== LIGHT MODE ==================== */
+body.light {
+    --primary-bg: #f8f6f2;
+    --secondary-bg: #ffffff;
+    --text-primary: #2c2c2c;
+    --text-secondary: #666666;
+}
+
+body.light {
+    background: linear-gradient(135deg, var(--primary-bg) 0%, #f0ede8 100%);
+    color: var(--text-primary);
+}
+
+body.light .site-header {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #f9f9f9 100%);
+    border-bottom: 2px solid rgba(204, 139, 101, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.light .project,
+body.light #about,
+body.light .section {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #fafafa 100%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(204, 139, 101, 0.15);
+}
+
+body.light footer {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #f9f9f9 100%);
+    border-top: 2px solid rgba(204, 139, 101, 0.2);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.light .header-nav a::before {
+    background: linear-gradient(135deg, rgba(204, 139, 101, 0.08) 0%, rgba(204, 139, 101, 0.04) 100%);
+}
+
+body.light #toggle-btn {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #f5f5f5 100%);
+    border-color: rgba(204, 139, 101, 0.4);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 0 1rem;
+        height: 70px;
+        gap: 1rem;
+    }
+
+    .header-brand .brand-title {
+        font-size: 1.6rem;
+    }
+
+    .header-nav ul {
+        gap: 1rem;
+    }
+
+    .header-nav a {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    main {
+        padding: 2rem 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .project {
+        padding: 2rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .gallery img {
+        height: 200px;
+    }
+
+    /* Hero Section responsive */
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .hero-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .portrait-container {
+        width: 250px;
+        height: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* ==================== LIGHT MODE ==================== */
+body.light {
+    --primary-color: #f5f5f5;
+    --secondary-color: #ffffff;
+    --text-light: #1a1a1a;
+    --text-muted: #666666;
+}
+
+body.light .site-header {
+    background-color: var(--secondary-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+body.light .project,
+body.light #about,
+body.light .section {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.light footer {
+    background-color: var(--secondary-color);
+    border-top: 2px solid var(--accent-color);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== CV/LEBENSLAUF SECTIONS ==================== */
+.cv-section {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #1a1415 100%);
+    padding: 2.5rem;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(204, 139, 101, 0.1);
+    position: relative;
+    transition: var(--transition);
+}
+
+.cv-section:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(204, 139, 101, 0.2);
+}
+
+.cv-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.cv-section h3 {
+    color: var(--accent);
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.cv-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-hover) 100%);
+    border-radius: 1px;
+}
+
+.cv-section h4 {
+    color: var(--text-primary);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.cv-content p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.cv-content strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.cv-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cv-content li {
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.cv-content li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.cv-content a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.cv-content a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* ==================== LIGHT MODE CV ==================== */
+body.light .cv-section {
+    background: linear-gradient(135deg, var(--secondary-bg) 0%, #fafafa 100%);
+    border: 1px solid rgba(204, 139, 101, 0.15);
+}
+
+body.light .cv-section:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border-color: rgba(204, 139, 101, 0.25);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .header-nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .project {
+        padding: 1.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .project img {
+        max-width: 100%;
+    }
+
+    /* CV responsive */
+    .cv-section {
+        padding: 2rem;
+        margin: 1.5rem 0;
+    }
+
+    .cv-section h3 {
+        font-size: 1.4rem;
+    }
+
+    .cv-section h4 {
+        font-size: 1.2rem;
+    }
 }

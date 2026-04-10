@@ -13,25 +13,27 @@
 </head>
 
 <body>
-    <header>
-        <div class="head">
-            <h1>Maier Felix</h1>
-            <button id="toggle-btn" onclick="toggleTheme()">
-                <i class="fas fa-sun"></i>
-            </button>
+    <header class="site-header">
+        <div class="header-brand">
+            <a class="brand-title" href="../index.html">Maier Felix</a>
         </div>
-        <nav>
+        <nav class="header-nav">
             <ul>
-                <li><a href="../index.html"><i class="fas fa-home"></i> Startseite</a></li>
                 <li><a href="../projekte.html"><i class="fas fa-project-diagram"></i> Projekte</a></li>
                 <li><a href="../lebenslauf.html"><i class="fas fa-user-graduate"></i> Lebenslauf</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <button id="toggle-btn" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
     </header>
 
     <!-- Hauptinhalt für das Proxmox-Projekt -->
     <main>
         <section class="project no-hover">
+            <a class="project-back" href="../projekte.html"><i class="fas fa-arrow-left"></i> Zurück zu Projekten</a>
             <h2>Virtualisierungsserver Einrichten (Proxmox)</h2>
             <p><strong>Erstellt für:</strong> EDV-Schule Plattling</p>
             <p><strong>Abgegeben am:</strong> 26.01.2024</p>
@@ -59,7 +61,7 @@
     </footer>
 
 
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
 
     
 </body>

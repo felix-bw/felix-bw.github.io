@@ -9,17 +9,21 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <a href="index.html"><h1>Maier Felix</h1></a>
-        <nav>
+    <header class="site-header">
+        <div class="header-brand">
+            <a class="brand-title" href="index.html">Maier Felix</a>
+        </div>
+        <nav class="header-nav">
             <ul>
                 <li><a href="projekte.html"><i class="fas fa-project-diagram"></i> Projekte</a></li>
                 <li><a href="lebenslauf.html"><i class="fas fa-user-graduate"></i> Lebenslauf</a></li>
             </ul>
         </nav>
-        <button id="toggle-btn" onclick="toggleTheme()">
-            <i class="fas fa-sun"></i>
-        </button>
+        <div class="header-actions">
+            <button id="toggle-btn" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
     </header>
 
     <!-- Hauptinhalt -->

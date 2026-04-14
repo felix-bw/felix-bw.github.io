@@ -220,6 +220,20 @@ h2::after {
     align-items: center;
 }
 
+.hero-text h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text h2 {
+    font-size: clamp(1.75rem, 2.5vw, 2.6rem);
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -0.6px;
+    color: var(--text-primary);
+}
+
 .hero-text p {
     color: var(--text-secondary);
     line-height: 1.8;
@@ -233,29 +247,38 @@ h2::after {
     font-weight: 600;
 }
 
-.hero-text a:hover {
-    /* Hover-Effekte entfernt */
+.hero-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+    align-items: stretch;
 }
 
-.portrait-container {
-    width: 100%;
-    max-width: 240px;
-    aspect-ratio: 4 / 5;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    position: relative;
+.hero-actions .project-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1rem 1rem;
+    border: 1px solid rgba(204, 139, 101, 0.25);
+    border-radius: 1rem;
+    background: rgba(204, 139, 101, 0.08);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 700;
+    min-height: 72px;
+    text-align: center;
+    transition: transform var(--transition), background var(--transition), border-color var(--transition);
 }
 
-.portrait {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-image: url('pics/Porträt.png');
-    background-size: cover;
-    background-position: center;
+.hero-actions .project-action:hover,
+.hero-actions .project-action:focus-visible {
+    background: rgba(204, 139, 101, 0.16);
+    border-color: rgba(204, 139, 101, 0.45);
+    transform: translateY(-2px);
 }
-.personal-data-grid {
+
+.personal-data-header {
     display: grid;
     grid-template-columns: 1fr minmax(180px, 240px);
     gap: 1.5rem;
@@ -263,19 +286,32 @@ h2::after {
 }
 
 .portrait-container {
+    width: 100%;
+    max-width: 240px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
     justify-self: end;
     align-self: start;
+}
+
+.portrait {
+    display: block;
+    width: 100%;
     height: auto;
 }
 
+.personal-data-grid {
+    display: block;
+}
+
 @media (max-width: 768px) {
-    .personal-data-grid {
+    .personal-data-header {
         grid-template-columns: 1fr;
     }
 
     .portrait-container {
         justify-self: stretch;
-        height: auto;
     }
 }
 
@@ -289,11 +325,6 @@ h2::after {
     padding: 2.5rem;
     margin: 2.5rem 0;
     transition: var(--transition);
-}
-
-.project:hover,
-.cv-section:hover {
-    /* Hover-Effekte entfernt */
 }
 
 .project h3,
@@ -345,13 +376,6 @@ h2::after {
      color: var(--accent);
 }
 
-.project a:hover,
-.project-back:hover,
-footer a:hover,
-.cv-content a:hover {
-    /* Hover-Effekte entfernt */
-}
-
 .project-back {
     display: inline-flex;
     align-items: center;
@@ -368,11 +392,6 @@ footer a:hover,
     border-radius: var(--border-radius);
     box-shadow: 0 10px 24px rgba(0,0,0,0.18);
     transition: transform var(--transition), box-shadow var(--transition);
-}
-
-.project img:hover,
-.gallery img:hover {
-    /* Hover-Effekte entfernt */
 }
 
 .gallery {
@@ -600,19 +619,6 @@ body.light .social-links a:hover {
         font-size: 0.95rem;
     }
 
-    .brand-full {
-        display: none;
-    }
-
-    .brand-short {
-        display: inline;
-        font-size: 1.6rem;
-        letter-spacing: 0.05em;
-    }
-
-    .nav-text {
-        display: none;
-    }
 
     #toggle-btn {
         width: 44px;
@@ -638,9 +644,16 @@ body.light .social-links a:hover {
         gap: 1.5rem;
     }
 
+    .hero-actions {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+    }
+
+    .hero-actions .project-action {
+        min-height: 62px;
+    }
+
     .portrait-container {
         max-width: 100%;
-        aspect-ratio: 4 / 5;
         margin: 0 auto;
     }
 }
@@ -654,5 +667,9 @@ body.light .social-links a:hover {
     .header-nav a {
         padding: 0.75rem 0.75rem;
         min-width: 0;
+    }
+
+    .hero-actions {
+        grid-template-columns: 1fr;
     }
 }

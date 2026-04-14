@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIA - City Identifying Actiongame | Felix Maier</title>
+    <meta name="description" content="CIA Geolocation-Spiel von Felix Maier: Next.js/React mit PostgreSQL/PostGIS, Docker, RLS. Webapp für Geodaten-Verwaltung und interaktives Städte-Raten.">
+    <meta property="og:title" content="CIA - City Identifying Actiongame | Felix Maier">
+    <meta property="og:description" content="CIA Geolocation-Spiel von Felix Maier: Next.js/React mit PostgreSQL/PostGIS, Docker, RLS. Webapp für Geodaten-Verwaltung und interaktives Städte-Raten.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://maier-felix.de/Projekte/cia.html">
+    <meta property="og:image" content="https://maier-felix.de/pics/cia/cia.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-brand">
+            <a class="brand-title" href="../index.html">Maier Felix</a>
+        </div>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="../projekte.html"><i class="fas fa-project-diagram"></i> Projekte</a></li>
+                <li><a href="../lebenslauf.html"><i class="fas fa-user-graduate"></i> Lebenslauf</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button id="toggle-btn" onclick="toggleTheme()">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="project no-hover">
+            <a class="project-back" href="../projekte.html"><i class="fas fa-arrow-left"></i> Zurück zu Projekten</a>
+            <h1>CIA</h1>
+            <h2>City identifiyg action game</h2>
+            <p><strong>Erstellt für:</strong> EDV-Schule Plattling</p>
+            <p><strong>Abgegeben am:</strong> 15.01.2025
+            <p><strong>Beschreibung:</strong></p>
+            <p>Das CIA-Projekt ("City Identifying Actiongame") ist ein interaktives Geolocation-Spiel mit Next.js/React zur spielerischen Vermittlung geografischen Wissens. Spieler schätzen Städte-Positionen auf Leaflet-Karten, System berechnet Distanz. Ergänzt durch Admin-Weboberfläche für CRUD-Geodaten (Städte: Name, Koordinaten, Owner) mit PostgreSQL/PostGIS und Row Level Security (RLS) für Zugriffssteuerung (Admin/Guest). Alles in Docker-Containern (DB, Adminer, WebUI, Spiel).</p>
+            <p><strong>Verwendete Technologien:</strong></p>
+            <ul>
+                <li>Frontend: Next.js / React / Leaflet Maps</li>
+                <li>Backend/DB: PostgreSQL / PostGIS / RLS</li>
+                <li>Deployment: Docker Compose (4 Container)</li>
+                <li>API: CRUD-Endpoints, ST_DistanceSphere für Abstandsrechnung</li>
+            </ul>
+            <p><strong>Galerie:</strong></p>
+            <div class="gallery">
+                <img src="../pics/cia/cia.png" alt="CIA Dashboard - Städtische Verwaltungssystem">
+                <img src="../pics/cia/staedteverwaltung.png" alt="Städtische Verwaltung Interface">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://instagram.com/maier_felix06" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://snapchat.com/add/felix.maier06" target="_blank" title="Snapchat"><i class="fab fa-snapchat"></i></a>
+            <a href="https://www.linkedin.com/in/felix-maier-81097b401/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.xing.com/profile/Felix_Maier139/web_profiles" target="_blank" title="Xing"><i class="fab fa-xing"></i></a>
+        </div>
+        <p>&copy; 2026 Maier Felix | <a href="/impressum.html">Impressum</a></p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
